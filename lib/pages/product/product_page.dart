@@ -24,7 +24,8 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   Future<void> _fetchProducts() async {
-    final response = await http.get(Uri.parse('https://api.kartel.dev/products'));
+    final response =
+        await http.get(Uri.parse('https://api.kartel.dev/products'));
 
     if (response.statusCode == 200) {
       _products = Product.fromJsonList(response.body);
@@ -50,7 +51,8 @@ class _ProductPageState extends State<ProductPage> {
 
   void _updateProduct(Product updatedProduct) {
     setState(() {
-      final index = _products.indexWhere((product) => product.id == updatedProduct.id);
+      final index =
+          _products.indexWhere((product) => product.id == updatedProduct.id);
       if (index != -1) {
         _products[index] = updatedProduct;
         _productStreamController.add(_products);
@@ -94,7 +96,8 @@ class _ProductPageState extends State<ProductPage> {
                     final result = await Navigator.push<bool>(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ProductDetailPage(product: product),
+                        builder: (context) =>
+                            ProductDetailPage(product: product),
                       ),
                     );
                     if (result == true) {
@@ -105,14 +108,20 @@ class _ProductPageState extends State<ProductPage> {
                   },
                   child: Container(
                     margin: const EdgeInsets.all(8.0),
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       border: Border.all(color: Colors.grey),
                     ),
                     child: ListTile(
                       title: Text(product.name),
-                      subtitle: Text('Price: ${product.price}, Qty: ${product.qty}, Issuer: ${product.issuer}'),
+                      subtitle: Text(
+                        'Lihat detail',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
                     ),
                   ),
                 );
@@ -131,7 +140,8 @@ class _ProductPageState extends State<ProductPage> {
             _addProduct(newProduct);
           }
         },
-        label: const Text('Tambah Produk', style: TextStyle(color: Colors.white)),
+        label:
+            const Text('Tambah Produk', style: TextStyle(color: Colors.white)),
         icon: const Icon(Icons.add, color: Colors.white),
         backgroundColor: const Color(0xFF758694),
       ),

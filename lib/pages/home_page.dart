@@ -164,15 +164,20 @@ class _HomePageState extends State<HomePage> {
                   },
                   child: Container(
                     margin: const EdgeInsets.all(8.0),
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       border: Border.all(color: Colors.grey),
                     ),
                     child: ListTile(
                       title: Text(stock.name),
-                      subtitle:
-                          Text('Qty: ${stock.qty}, Issuer: ${stock.issuer}'),
+                      subtitle: Text(
+                        'Lihat detail',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
                     ),
                   ),
                 );

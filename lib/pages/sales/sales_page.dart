@@ -105,7 +105,7 @@ class _SalesPageState extends State<SalesPage> {
                   },
                   child: Container(
                     margin: const EdgeInsets.all(8.0),
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       border: Border.all(color: Colors.grey),
@@ -113,7 +113,12 @@ class _SalesPageState extends State<SalesPage> {
                     child: ListTile(
                       title: Text(sales.buyer),
                       subtitle: Text(
-                          'Phone: ${sales.phone}, Date: ${sales.date}, Status: ${sales.status}'),
+                        'Lihat detail',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
                     ),
                   ),
                 );
